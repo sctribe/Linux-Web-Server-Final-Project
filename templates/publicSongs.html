@@ -1,0 +1,48 @@
+<html>
+<head>
+	<link rel = stylesheet type = text/css href="{{ url_for('static', filename = 'styles.css')}}">
+
+</head>
+
+<body>
+<a style="padding-left: 3%; text-decoration: underline;" href="/login">Login</a>
+<h1 class="genre-name">{{genre.name}}</h1>
+<span>
+	<span style="width: 50%; display: inline-block; padding-left: 3%; text-decoration: underline;">
+		<a href = "/">Home</a>
+	</span>
+	<span style="text-align: right; padding-left: 30%; text-decoration: underline; ">
+		<a href = '{{url_for("newSong", genre_id = genre.id)}}'>Add New Song</a>
+	</span>
+</span>
+
+
+
+
+<div>
+
+{% if songs %}
+	{% for i in songs %}
+		<div class="list-songs">
+			<div class="song-div">
+				<div class="songdetails left">
+					<h3 class="songName">{{i.name}}</h3>
+					<h4 class="songArtist">{{i.artist}}</h4>
+					<h4 class="songAlbum">{{i.album}}</h4>
+					<h4 class="songYear"> Released in {{i.year}}</h4>
+				</div>
+				<div class="songdetails right">
+
+					<h4 class="songLength">{{i.length}}</h4>
+				</div>
+			</div>
+
+		</div>
+
+	{% endfor %}
+{% endif %}
+
+</div>
+</body>
+
+</html>

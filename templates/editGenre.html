@@ -1,0 +1,24 @@
+<html>
+<head>
+<link rel = stylesheet type = text/css href="{{ url_for('static', filename = 'styles.css')}}">
+
+</head>
+<body>
+<h1>Edit Genre</h1>
+
+<div class="deletegenre-buttons">
+<form class="confirm" method="POST">
+
+
+
+<input type = 'text' size='30' name = 'name' placeholder = '{{genre.name}}'>
+
+<input type='submit' value='Edit'>
+</form>
+<form class="mainMenu" action="/">
+    <input type="submit" value="Cancel" />
+</form>
+
+</div>
+</body>
+</html>

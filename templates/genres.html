@@ -1,0 +1,49 @@
+<html>
+<head>
+	<link rel = stylesheet type = text/css href="{{ url_for('static', filename = 'styles.css')}}">
+</head>
+<body>
+	<a style="padding-left: 3%; text-decoration: underline;" href="/logout">Logout</a>
+	<h1 class="genre-name">Music Genres</h1>
+
+	<a class="add" href="{{url_for('newGenre')}}">Add a Genre</a>
+	<br><br>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+
+			{% for message in messages %}
+				<span style="padding-left: 40%; font-weight: bolder; color: #435400">{{message}}</span>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<div>
+	{% if genres %}
+		{% for i in genres %}
+		<div class="list">
+			<div class="genre-div">
+				<h3 class="genre"><a href="{{url_for('showSongs', genre_id = i.id)}}">{{i.name}}</a></h3>
+			</div>
+			{% if i.user_id == loginUser %}
+				<div class="buttons">
+					<p><a href="{{url_for('editGenre', genre_id = i.id)}}">Edit</a></p>
+					<p><a href="{{url_for('deleteGenre', genre_id = i.id)}}">Delete</a></p>
+				</div>
+			{% endif %}
+		</div>
+
+		{% endfor %}
+	{% else %}
+		<h3> There are no genres here</h3>
+
+	{% endif %}
+
+	</div>
+
+
+</body>
+
+
+
+
+</html>

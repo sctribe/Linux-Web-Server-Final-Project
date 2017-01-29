@@ -1,0 +1,183 @@
+html {
+      font-family: sans-serif;
+      background:#ffc600;
+      min-width: 420px;
+}
+
+.list {
+	max-width:400px;
+	margin:20px auto;
+	background:white;
+	border-radius:5px;
+	box-shadow:10px 10px 0 rgba(0,0,0,0.1);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.list-songs{
+	max-width:500px;
+	margin:20px auto;
+	background:white;
+	border-radius:5px;
+	box-shadow:10px 10px 0 rgba(0,0,0,0.1);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.list:hover {
+	background: #F9F9F9;
+}
+
+.genre {
+	font-size: 35px;
+
+}
+.genre-div {
+	flex: 1;
+	text-align: center;
+	flex-basis: 70%;
+
+}
+
+.buttons {
+	display: flex;
+	flex:1;
+	align-self: auto;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color: #435400;
+}
+
+a:hover {
+	color: #FF5300;
+}
+
+h1 {
+	color:#435400;
+	text-align: center;
+	font-size: 100px;
+	margin-bottom: 20px;
+	font-family: 'helvetica neue';
+
+}
+
+
+.loginPage{
+	color:#435400;
+	text-align: center;
+	font-size: 60px;
+	margin-bottom: 20px;
+	font-family: 'helvetica neue';
+
+}
+
+
+p {
+  margin:0;
+  padding:20px;
+  flex:1;
+  font-family:'helvetica neue';
+  font-size: 14px;
+  font-weight: 200;
+  border-left: 1px solid #D1E2FF;
+}
+
+.delete-buttons, .addgenre-buttons, .deletegenre-buttons, .newSong, .editSong {
+	display: flex;
+	justify-content: center;
+}
+
+.delete-text {
+	font-size: 50px;
+}
+
+.confirm {
+	padding: 7.5px;
+}
+
+.mainMenu {
+	padding: 7.5px;
+}
+
+.add {
+	padding-left: 85%;
+	text-decoration: underline;
+}
+
+.genre-name {
+	border-bottom: 3px solid #435400;
+	margin-top: 0px;
+}
+span {
+	padding-right: 5px;
+}
+
+.songdetails {
+	flex: 1;
+	color: #435400;
+
+
+}
+
+.song-div {
+	flex: 1;
+	text-align: center;
+	flex-basis: 70%;
+	display: flex;
+
+}
+
+.left {
+	text-align: left;
+	flex: 2;
+}
+
+.right {
+	text-align: right;
+
+}
+
+.songName {
+	font-size: 22px;
+	padding-left: 10px;
+	margin-bottom: 0;
+}
+
+.songArtist{
+	font-size: 12px;
+	padding-left: 10px;
+	margin-bottom: 0;
+}
+
+.songAlbum{
+	font-size: 12px;
+	padding-left: 10px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.songYear{
+	font-size: 12px;
+	padding-left: 10px;
+	margin-top: 0;
+}
+
+.songLength{
+	font-size: 16px;
+	padding-left: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	height: 100;
+	align-items: center;
+	justify-content: center;
+}
+ .home {
+ 	padding-left: 2%;
+ 	text-decoration: underline;
+ }
