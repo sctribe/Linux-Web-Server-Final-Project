@@ -42,7 +42,7 @@ class Songs(Base):
     year = Column(Integer(4))
     length = Column(String(6))
     genre_id = Column(Integer,ForeignKey('genre.id'))
-    genre = relationship(Genre)
+    genre = relationship(Genre, cascade = "all, delete-orphan", single_parent = True)
     user_id = Column(Integer, ForeignKey("user.id"))
     user = relationship(User)
 
