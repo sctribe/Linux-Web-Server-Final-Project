@@ -346,6 +346,7 @@ Source: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-d
 
 #####To get the Facebook authorization working:
   1. Go on the Facebook Developers Site https://developers.facebook.com/apps/
-  2. Click on your App, go to Settings and fill in your public IP-Address including prefixed http:// as well as the hostname in the Site URL field
+  2. Click on your App, go to Settings and fill in your public IP-Address including prefixed http:// in the Site URL field.
   3. To leave the development mode, so others can login as well, also fill in a contact email address in the respective field, "Save Changes".
+  4. Under Products click on Facebook Login, then settings and add your public IP-Address including prefixed http:// as well as the hostname with the prefixed http://. Click "Save Changes"
 
