@@ -401,5 +401,5 @@ Contains the Flask application. All code tying the sql database and html togethe
    the entries created by this script since they are attributed to a sample user
 8. Type in `python project.py` to start the server
 9. Access and test the application locally by visiting http://localhost:5000 in a web browser
->>>>>>> 015066804caf45c1671c72de86d3af55cfdd06d1
+
 
