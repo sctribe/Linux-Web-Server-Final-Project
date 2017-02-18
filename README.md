@@ -67,17 +67,20 @@ Source: [Ask Ubuntu](http://askubuntu.com/questions/94102/what-is-the-difference
 2. Install newer vesions of packages you have:
   `$ apt-get upgrade`
 3. Type in each of the following lines one by one to install the required packages and dependicies:
-  `$ apt-get install postgresql python-psycopg2`
-  `$ apt-get install python-flask python-sqlalchemy`
-  `$ apt-get install python-pip`
-  `$ pip install bleach`
-  `$ pip install oauth2client`
-  `$ pip install requests`
-  `$ pip install httplib2`
-  `$ pip install redis`
-  `$ pip install passlib`
-  `$ pip install itsdangerous`
-  `$ pip install flask-httpauth`
+  ```
+  $ apt-get install postgresql python-psycopg2
+  $ apt-get install python-flask python-sqlalchemy
+  $ apt-get install python-pip
+  $ pip install bleach
+  $ pip install oauth2client
+  $ pip install requests
+  $ pip install httplib2
+  $ pip install redis
+  $ pip install passlib
+  $ pip install itsdangerous
+  $ pip install flask-httpauth
+
+  ```
 
 ### 6 - Change the SSH Port From 22 to 2200 and Configure SSH Access
 Source: Configuring Linux Web Servers Udacity Course
