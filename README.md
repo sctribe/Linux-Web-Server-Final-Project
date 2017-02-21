@@ -57,10 +57,11 @@ Source: Configuring Linux Web Servers Udacity Course
   1. Create a new file in the /etc/sudoers.d/ directory named grader:
     `$ nano /etc/sudoers.d/grader`
   2. Add the following line to the empty grader file:
-    `grader ALL=(ALL) NOPASSWD:ALL`
+    `grader ALL=(ALL:ALL) ALL`
+    This will allow the grader user to sudo after entering their password.
 
 ### 5 - Update Currently Installed Packages and Install New Dependicies
-Source: [Ask Ubuntu](http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade)  and [Udacity Forum](https://discussions.udacity.com/t/how-to-run-a-flask-app-in-aws/213184/7)
+Source: [Ask Ubuntu],(http://askubuntu.com/questions/94102/what-is-the-difference-between-apt-get-update-and-upgrade) [Udacity Forum](https://discussions.udacity.com/t/how-to-run-a-flask-app-in-aws/213184/7) and [Keeping Your Server Secure with Unattended Upgrades](https://blog.mafr.de/2015/02/26/ubuntu-unattended-upgrades/)
 
 1. Update the list of available packages and their versions:
   `$ apt-get update`
@@ -81,6 +82,16 @@ Source: [Ask Ubuntu](http://askubuntu.com/questions/94102/what-is-the-difference
   $ pip install flask-httpauth
 
   ```
+4. It is important to keep your server update at all times for security purposes. To make this easier we will automate the process using `unattended-upgrades` and `update-notifier-common`. The first package will allow for the automatic installation of upgrades and the second will allow for automatically rebooting the server after upgrades are installed. Type in:
+  `apt-get install unattended-upgrades update-notifier-common`
+5. Once installed upgrades are enabled as follows:
+  `dpkg-reconfigure unattended-upgrades`
+6. Select yes to configure automatic upgrades.
+7. To configure automatic reboots type in:
+  `nano /etc/apt/apt.conf.d/50unattended-upgrades`
+8. Set `Unattended-Upgrade::Automatic Reboot` to "true";
+
+**Note:** On actual production servers we would not want automatic upgrades because we would like an opportunity to test them in a closed environment to make sure they do not adversely affect our server set up and break something. For a personal server such as this security matters more than up time so automatic upgrades are ok.
 
 ### 6 - Change the SSH Port From 22 to 2200 and Configure SSH Access
 Source: Configuring Linux Web Servers Udacity Course
@@ -349,4 +360,16 @@ Source: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-d
   2. Click on your App, go to Settings and fill in your public IP-Address including prefixed http:// in the Site URL field.
   3. To leave the development mode, so others can login as well, also fill in a contact email address in the respective field, "Save Changes".
   4. Under Products click on Facebook Login, then settings and add your public IP-Address including prefixed http:// as well as the hostname with the prefixed http://. Click "Save Changes"
+
+**Note:** After the server is up and running and you have tested everything you will need to terminate remote login capability for the root user. Be careful doing this because you may lock yourself out of your server.
+
+1. Open the sshd_config file:
+  `nano /etc/ssh/sshd_config`
+2. Scroll down change line 28 from `PermitRootLogin without-password` to `PermitRootLogin no`
+3. Under the line that starts with `strictModes` type in the following  new line:
+  `AllowUsers grader`
+4. Type in the following commands to make sure you have no errors in your sshd_config file before restarting the service and using the reconfigured file. The following two lines of code should report "0" if there are no errors. If there is an error it will tell you what it is:
+  `/usr/sbin/sshd -t` and then `echo $?`
+5. Restart ssh service:
+  `service ssh restart`
 
